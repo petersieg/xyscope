@@ -1,1 +1,1 @@
-Draw 3d object - tetrahedron
+Draw 3d object - 3 figures
