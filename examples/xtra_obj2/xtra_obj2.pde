@@ -36,8 +36,10 @@ public void draw() {
   pushMatrix();
   translate(width/2, height/2);
   if (figure == 0) scale(100);
-  if (figure == 1) scale(300);
-  if (figure == 2) scale(150);
+  if (figure == 1) scale(100);
+  if (figure == 2) scale(300);
+  if (figure == 3) scale(50);
+  if (figure == 4) scale(150);
   rotateZ(PI);
   rotateY(radians(frameCount));
 
@@ -48,7 +50,7 @@ public void draw() {
     figure++;
     loopcount = 0;
   }
-  if (figure > 2) figure = 0;
+  if (figure > 4) figure = 0;
   
   if (figure == 0) {
   /*  
@@ -71,8 +73,58 @@ public void draw() {
   xy.vertex(-1, -1, 1); 
   xy.vertex(-1, 1, -1);
   }
-  
   if (figure == 1) {
+  /* 
+  Hexahedron (cube)[] =
+  -1 -1 -1    1 -1 -1    1 -1  1   -1 -1  1
+  
+  -1 -1 -1   -1 -1  1   -1  1  1   -1  1 -1
+  
+  -1 -1  1    1 -1  1    1  1  1   -1  1  1
+  
+  -1  1 -1   -1  1  1    1  1  1    1  1 -1
+  
+   1 -1 -1    1  1 -1    1  1  1    1 -1  1
+   
+  -1 -1 -1   -1  1 -1    1  1 -1    1 -1 -1
+  */
+  //-1 -1 -1    1 -1 -1    1 -1  1   -1 -1  1
+  xy.vertex(-1, -1, -1);
+  xy.vertex(1, -1, -1);
+  xy.vertex(1, -1, 1);
+  xy.vertex(-1, -1, 1);
+  
+  //-1 -1 -1   -1 -1  1   -1  1  1   -1  1 -1
+  xy.vertex(-1, -1, -1);
+  xy.vertex(-1, -1, 1);
+  xy.vertex(-1, 1, 1);
+  xy.vertex(-1, 1, -1);
+  
+  //-1 -1  1    1 -1  1    1  1  1   -1  1  1
+  xy.vertex(-1, -1, 1);
+  xy.vertex(1, -1, 1);
+  xy.vertex(1, 1, 1);
+  xy.vertex(-1, 1, 1);
+  
+  //-1  1 -1   -1  1  1    1  1  1    1  1 -1
+  xy.vertex(-1, 1, -1);
+  xy.vertex(-1, 1, 1);
+  xy.vertex(1, 1, 1);
+  xy.vertex(1, 1, -1);
+  
+  // 1 -1 -1    1  1 -1    1  1  1    1 -1  1
+  xy.vertex(1, -1, -1);
+  xy.vertex(1, 1, -1);
+  xy.vertex(1, 1, 1);
+  xy.vertex(1, -1, 1);
+  
+  //-1 -1 -1   -1  1 -1    1  1 -1    1 -1 -1
+  xy.vertex(-1, -1, -1);
+  xy.vertex(-1, 1, -1);
+  xy.vertex(1, 1, -1);
+  xy.vertex(1, -1, -1);
+  }
+  if (figure == 2) {
   a = (1./(2.*sqrt(2.)));
   b = (1./2.);
   /*
@@ -124,7 +176,17 @@ public void draw() {
   xy.vertex(0, -b, 0); 
   }
   
-  if (figure == 2) {
+  if (figure == 3) {
+  xy.vertex(-4, 1, 0); 
+  xy.vertex(-2, 1, 0); 
+  xy.vertex(-2, 1, 0); 
+  xy.vertex(-2, -1, 0); 
+  xy.vertex(-2, -1, 0); 
+  xy.vertex(-4, -1, 0); 
+  xy.vertex(-4, 1, 0); 
+  xy.vertex(-4, -1, 0); 
+  }
+  if (figure == 4) {
   phi = ((1. + sqrt(5.))/2.);
   b = (1./phi);
   c = (2.-phi);
