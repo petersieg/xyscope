@@ -41,7 +41,7 @@ RPoint[][] pointPaths;
 
 // store our text to draw
 String txtString = "LOVE";
-Integer i = 0;
+Integer i = 0, loopcount = 0;
 
 void setup() {
   size(512, 512);
@@ -84,26 +84,29 @@ void draw() {
 
   // draw Wave + XY analytics
   xy.drawWave();
-  //xy.drawXY();
-  delay(10000);
-  i = int(random(1,17));
+  xy.drawXY();
+  loopcount++;
+  if (loopcount > 1000) {
+    loopcount = 0;
+    i = int(random(1,17));
+    if (i == 1) txtString = "ENERGY";
+    if (i == 2) txtString = "PLANET";
+    if (i == 3) txtString = "2BE";
+    if (i == 4) txtString = "2DO";
+    if (i == 5) txtString = "2DIE";
+    if (i == 6) txtString = "EARTH";
+    if (i == 7) txtString = "HOPE";
+    if (i == 8) txtString = "LOVE";
+    if (i == 9) txtString = "PEACE";
+    if (i == 10) txtString = "FRIEND";
+    if (i == 11) txtString = "GOD";
+    if (i == 12) txtString = "SUN";
+    if (i == 13) txtString = "DO IT";
+    if (i == 14) txtString = "THRUTH";
+    if (i == 15) txtString = "CELL";
+    if (i == 16) txtString = "WISDOM";
+  }
   xy.clearWaves();
-  if (i == 1) txtString = "ENERGY";
-  if (i == 2) txtString = "PLANET";
-  if (i == 3) txtString = "2BE";
-  if (i == 4) txtString = "2DO";
-  if (i == 5) txtString = "2DIE";
-  if (i == 6) txtString = "EARTH";
-  if (i == 7) txtString = "HOPE";
-  if (i == 8) txtString = "LOVE";
-  if (i == 9) txtString = "PEACE";
-  if (i == 10) txtString = "FRIEND";
-  if (i == 11) txtString = "GOD";
-  if (i == 12) txtString = "SUN";
-  if (i == 13) txtString = "DO IT";
-  if (i == 14) txtString = "THRUTH";
-  if (i == 15) txtString = "CELL";
-  if (i == 16) txtString = "WISDOM";
 }
 
 void keyPressed() {
